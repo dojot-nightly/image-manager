@@ -47,17 +47,3 @@ def get_pagination(request):
 
     except TypeError:
         raise HTTPRequestError(400, "page_size and page_num must be integers")
-
-
-def calculate_sha1(filedesc):
-    # BUF_SIZE is totally arbitrary, change for your app!
-    BUF_SIZE = 65536  # lets read stuff in 64kb chunks!
-    sha1 = hashlib.sha1()
-    # Calculate sha1 for our example file
-    while True:
-        data = filedesc.read(BUF_SIZE)
-        if not data:
-            break
-        sha1.update(data)
-
-    return sha1.hexdigest()

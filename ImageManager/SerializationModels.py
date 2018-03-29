@@ -17,7 +17,6 @@ class ImageSchema(Schema):
     updated = fields.DateTime(dump_only=True)
 
     fw_version = fields.String(required=True)
-    sha1 = fields.String(required=True)
     confirmed = fields.Bool(required=False)
 
     @post_dump
