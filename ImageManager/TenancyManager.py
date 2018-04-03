@@ -14,9 +14,8 @@ def decode_base64(data):
     """
     missing_padding = len(data) % 4
     if missing_padding != 0:
-        data = bytes(data, 'utf-8') + b'=' * (4 - missing_padding)
-    return base64.decodebytes(data).decode("utf-8")
-
+        data += '=' * (4 - missing_padding)
+    return base64.decodebytes(data.encode()).decode()
 
 def get_allowed_service(token):
     """
